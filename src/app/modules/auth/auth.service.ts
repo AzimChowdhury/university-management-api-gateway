@@ -26,8 +26,27 @@ const changePassword = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
+const forgetPassword = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await AuthService.post('/auth/forgot-password', req.body, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+const resetPassword = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await AuthService.post('/auth/reset-password', req.body, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+
 export const AuthenticationService = {
   loginUser,
   refreshToken,
-  changePassword
+  changePassword,
+  forgetPassword,
+  resetPassword
 };
