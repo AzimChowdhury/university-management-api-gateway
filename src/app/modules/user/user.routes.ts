@@ -8,6 +8,7 @@ import { UserValidation } from './user.validations';
 const router = express.Router();
 
 router.post(
+<<<<<<< HEAD
   '/create-student',
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   FileUploadHelper.upload.single('file'),
@@ -15,6 +16,15 @@ router.post(
     req.body = UserValidation.createStudent.parse(JSON.parse(req.body.data));
     return UserController.createStudent(req, res, next);
   }
+=======
+    '/create-student',
+    //auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
+    FileUploadHelper.upload.single('file'),
+    (req: Request, res: Response, next: NextFunction) => {
+        req.body = UserValidation.createStudent.parse(JSON.parse(req.body.data))
+        return UserController.createStudent(req, res, next)
+    }
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 );
 
 router.post(

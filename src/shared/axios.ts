@@ -35,4 +35,8 @@ const AuthService = HttpService(config.authServiceUrl);
 const CoreService = HttpService(config.coreServiceUrl);
 const PaymentService = HttpService(config.paymentServiceUrl);
 
+<<<<<<< HEAD
 export { HttpService, AuthService, CoreService, PaymentService };
+=======
+export { HttpService, AuthService, CoreService, PaymentService }
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174

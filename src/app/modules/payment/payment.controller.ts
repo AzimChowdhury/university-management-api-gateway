@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import sendResponse from '../../../shared/response';
+<<<<<<< HEAD
 import { PaymentServices } from './payment.services';
 
 const webhook = async (req: Request, res: Response, next: NextFunction) => {
@@ -31,4 +32,39 @@ export const PaymentController = {
   webhook,
   getAllFromDB,
   getByIdFromDB
+=======
+import { PaymentServices } from './payment.service';
+
+const webhook = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await PaymentServices.webhook(req);
+        sendResponse(res, result);
+    } catch (error) {
+        next(error);
+    }
+};
+const getAllFromDB = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await PaymentServices.getAllFromDB(req);
+        sendResponse(res, result);
+    } catch (error) {
+        next(error);
+    }
+};
+const getByIdFromDB = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await PaymentServices.getByIdFromDB(req);
+        sendResponse(res, result);
+    } catch (error) {
+        next(error);
+    }
+};
+
+
+
+export const PaymentController = {
+    webhook,
+    getAllFromDB,
+    getByIdFromDB
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 };

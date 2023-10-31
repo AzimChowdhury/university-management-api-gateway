@@ -18,11 +18,17 @@ import { facultyRoutes } from '../modules/faculty/faculty.routes';
 import { managementDepartmentRoutes } from '../modules/managementDepartment/managementDepartment.routes';
 import { adminRoutes } from '../modules/admin/admin.routes';
 import { studentRoutes } from '../modules/student/student.routes';
+<<<<<<< HEAD
 import { paymentRoutes } from '../modules/payment/payment.route';
+=======
+import { paymentRoutes } from '../modules/payment/payment.routes';
+
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 
 const router = express.Router();
 
 const moduleRoutes = [
+<<<<<<< HEAD
   {
     path: '/auth',
     routes: authRoutes
@@ -103,6 +109,88 @@ const moduleRoutes = [
     path: '/payments',
     routes: paymentRoutes
   }
+=======
+    {
+        path: '/auth',
+        routes: authRoutes
+    },
+    {
+        path: '/users',
+        routes: userRoutes
+    },
+    {
+        path: '/faculties',
+        routes: facultyRoutes
+    },
+    {
+        path: '/students',
+        routes: studentRoutes
+    },
+    {
+        path: '/academic-faculties',
+        routes: academicFacultyRoutes
+    },
+    {
+        path: '/academic-departments',
+        routes: academicDepartmentRoutes
+    },
+    {
+        path: '/academic-semesters',
+        routes: academicSemesterRoutes
+    },
+    {
+        path: '/buildings',
+        routes: buildingRoutes
+    },
+    {
+        path: '/rooms',
+        routes: roomRoutes
+    },
+    {
+        path: '/courses',
+        routes: courseRoutes
+    },
+    {
+        path: '/semester-registrations',
+        routes: semesterRegistrationRoutes
+    },
+    {
+        path: '/offered-courses',
+        routes: offeredCourseRoutes
+    },
+    {
+        path: '/offered-course-sections',
+        routes: offeredCourseSectionRoutes
+    },
+    {
+        path: '/offered-course-class-schedules',
+        routes: offeredCourseClassScheduleRoutes
+    },
+    {
+        path: '/student-enrolled-courses',
+        routes: studentEnrolledCourseRoutes
+    },
+    {
+        path: '/student-enrolled-course-marks',
+        routes: studentEnrolledCourseMarkRoutes
+    },
+    {
+        path: '/student-semester-payments',
+        routes: studentSemesterPaymentRoutes
+    },
+    {
+        path: '/management-departments',
+        routes: managementDepartmentRoutes
+    },
+    {
+        path: '/admins',
+        routes: adminRoutes
+    },
+    {
+        path: '/payments',
+        routes: paymentRoutes
+    },
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 ];
 
 moduleRoutes.forEach((route) => {

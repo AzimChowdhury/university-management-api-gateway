@@ -38,6 +38,37 @@ const completePayment = async (req: Request): Promise<IGenericResponse> => {
   return response;
 };
 
+<<<<<<< HEAD
+=======
+const initiatePayment = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await CoreService.post(
+    '/student-semester-payments/initiate-payment',
+    {
+      params: req.body,
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const completePayment = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await CoreService.post(
+    '/student-semester-payments/complete-payment',
+    {
+      params: req.body,
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+
+
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 export const StudentSemesterPaymentService = {
   getMyPayment,
   initiatePayment,

@@ -44,7 +44,38 @@ const createStudent = async (req: Request) => {
     }
   });
 
+<<<<<<< HEAD
   return response;
+=======
+    const { academicDepartment, academicFaculty, academicSemester } = req.body.student
+
+    const academicDepartmentResponse = await AuthService.get(`/academic-departments?syncId=${academicDepartment}`)
+    console.log(academicDepartmentResponse)
+
+    if (academicDepartmentResponse.data && Array.isArray(academicDepartmentResponse.data)) {
+        req.body.student.academicDepartment = academicDepartmentResponse.data[0].id
+    }
+
+    const academicFacultyResponse = await AuthService.get(`/academic-faculties?syncId=${academicFaculty}`)
+
+    if (academicFacultyResponse.data && Array.isArray(academicFacultyResponse.data)) {
+        req.body.student.academicFaculty = academicFacultyResponse.data[0].id
+    }
+
+    const academicSemesterResponse = await AuthService.get(`/academic-semesters?syncId=${academicSemester}`)
+
+    if (academicSemesterResponse.data && Array.isArray(academicSemesterResponse.data)) {
+        req.body.student.academicSemester = academicSemesterResponse.data[0].id
+    }
+
+    const response: IGenericResponse = await AuthService.post('/users/create-student', req.body, {
+        headers: {
+            Authorization: req.headers.authorization
+        }
+    });
+
+    return response;
+>>>>>>> 94663038dca19e4951bdd411f20863b527d26174
 };
 
 const createFaculty = async (req: Request): Promise<IGenericResponse> => {
